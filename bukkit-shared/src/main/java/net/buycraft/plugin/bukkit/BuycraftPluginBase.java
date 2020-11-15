@@ -85,6 +85,7 @@ public abstract class BuycraftPluginBase extends JavaPlugin {
         }
 
         // Initialize configuration.
+        saveDefaultConfig();
         getDataFolder().mkdir();
         Path configPath = getDataFolder().toPath().resolve("config.properties");
         try {
@@ -198,6 +199,7 @@ public abstract class BuycraftPluginBase extends JavaPlugin {
         command.getSubcommandMap().put("report", new ReportCommand(this));
         command.getSubcommandMap().put("coupon", new CouponSubcommand(this));
         command.getSubcommandMap().put("sendlink", new SendLinkSubcommand(this));
+        command.getSubcommandMap().put("reload", new ReloadSubcommand(this));
         getCommand("buycraft").setExecutor(command);
 
         // Initialize sign layouts.

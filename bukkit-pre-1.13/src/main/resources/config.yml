@@ -1,0 +1,7 @@
+display:
+  1234567: # Package ID
+    name: ""
+    lore:
+      - ""
+    amount: 1
+    item: DIRT
