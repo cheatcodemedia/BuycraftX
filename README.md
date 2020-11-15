@@ -5,12 +5,12 @@ To change how an item is displayed, you can add the following to config.yml
 All properties of a display are optional.
 ```yml
 display:
-    1234567: # Package ID
-        name: ""
-        lore:
-        - ""
-        amount: 1
-        item: DIRT
+  1234567: # Package ID
+    name: ""
+    lore:
+    - ""
+    amount: 1
+    item: DIRT
 ```
 
 # BuycraftX
