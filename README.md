@@ -2,6 +2,9 @@
 This fork adds the ability to change how the GUI displays items in the `/buy` menu.
 To change how an item is displayed, you can add the following to config.yml
 
+**This fork only modifies the Bukkit version of BuycraftX. BungeeCord, Nukkit, Sponge & Velocity
+ are not touched.**
+
 All properties of a display are optional.
 ```yml
 display:
