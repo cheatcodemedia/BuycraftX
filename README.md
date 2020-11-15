@@ -1,3 +1,18 @@
+# CheatCode Fork
+This fork adds the ability to change how the GUI displays items in the `/buy` menu.
+To change how an item is displayed, you can add the following to config.yml
+
+All properties of a display are optional.
+```yml
+display:
+    1234567: # Package ID
+        name: ""
+        lore:
+        - ""
+        amount: 1
+        item: DIRT
+```
+
 # BuycraftX
 
 BuycraftX is the official plugin for the [Buycraft](https://www.buycraft.net) webstore solution for Minecraft servers.
