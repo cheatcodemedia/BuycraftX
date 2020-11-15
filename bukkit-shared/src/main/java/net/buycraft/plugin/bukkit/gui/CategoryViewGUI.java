@@ -233,7 +233,7 @@ public class CategoryViewGUI {
                             format.format(p.getEffectivePrice());
 
                     // CheatCode Start
-                    String configSectionKey = String.format("item-display.%s", p.getId());
+                    String configSectionKey = String.format("display.%s", p.getId());
                     if (plugin.getConfig().contains(configSectionKey)) {
                         ConfigurationSection display =
                             plugin.getConfig().getConfigurationSection(configSectionKey);
