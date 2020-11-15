@@ -12,6 +12,7 @@ import net.buycraft.plugin.data.responses.Listing;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -230,6 +231,40 @@ public class CategoryViewGUI {
                             ChatColor.DARK_GREEN +
                             ChatColor.BOLD +
                             format.format(p.getEffectivePrice());
+
+                    // CheatCode Start
+                    String configSectionKey = String.format("item-display.%s", p.getId());
+                    if (plugin.getConfig().contains(configSectionKey)) {
+                        ConfigurationSection display =
+                            plugin.getConfig().getConfigurationSection(configSectionKey);
+                        // Item Type
+                        //   This can be done via the Tebex control panel (and it's better to do
+                        //   it from there as such)
+                        if (display.contains("item")) {
+                            stack.setType(Material.valueOf(display.getString("item")));
+                        }
+
+                        // Item Amount
+                        if (display.contains("amount")) {
+                            stack.setAmount(display.getInt("amount"));
+                        }
+
+                        // Item Name
+                        if (display.contains("name")) {
+                            meta.setDisplayName(ChatColor.translateAlternateColorCodes('&',display.getString("name")));
+                        }
+
+                        // Item Lore
+                        if (display.contains("lore")) {
+                            List<String> rawLore = display.getStringList("lore");
+                            Collections.reverse(rawLore);
+                            for (String line : rawLore) {
+                                lore.add(0, ChatColor.translateAlternateColorCodes('&', line));
+                            }
+                        }
+                    }
+                    // CheatCode End
+
                     lore.add(price);
 
                     if (p.getSale() != null && p.getSale().isActive()) {
